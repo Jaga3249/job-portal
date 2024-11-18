@@ -1,4 +1,4 @@
-const OnBoarding = () => {
+const Onboarding = () => {
   return <div>OnBoarding</div>;
 };
-export default OnBoarding;
+export default Onboarding;

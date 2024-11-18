@@ -1,6 +1,4 @@
-import Layout from "../layout/Layout";
-
-const Landing = () => {
-  return <Layout>Landing</Layout>;
+const LandingPage = () => {
+  return <div>LandingPage</div>;
 };
-export default Landing;
+export default LandingPage;
