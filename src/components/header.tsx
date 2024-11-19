@@ -1,4 +1,10 @@
 import { Link } from "react-router-dom";
+// import {
+//   SignedIn,
+//   SignedOut,
+//   SignInButton,
+//   UserButton,
+// } from "@clerk/clerk-react";
 import { Button } from "./ui/button";
 
 const Header = () => {
@@ -8,9 +14,13 @@ const Header = () => {
         <Link to={"/"}>
           <img src="/logo.png" alt="logo" className="h-20" />
         </Link>
-        <Button variant={"outline"} className="">
-          Login
-        </Button>
+        {/* <SignedOut>
+          <SignInButton />
+        </SignedOut>
+        <SignedIn>
+          <UserButton />
+        </SignedIn> */}
+        <Button>Sign In</Button>
       </nav>
     </>
   );

@@ -1,11 +1,11 @@
 import { Outlet } from "react-router-dom";
-import Header from "../components/Header";
+import Header from "../components/header";
 
 const AppLayout = () => {
   return (
     <div className="">
       <div className="grid-background"></div>
-      <main className="min-h-screen container px-8 ">
+      <main className="min-h-screen  px-8 ">
         <Header />
         <Outlet />
       </main>

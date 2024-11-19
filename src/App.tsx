@@ -2,12 +2,13 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 import AppLayout from "./layout/app-layout";
 import LandingPage from "./pages/landing";
-import Onboarding from "./pages/OnBoarding";
+
 import JobListing from "./pages/job-listing";
 import JobPage from "./pages/Job";
 import PostJobs from "./pages/post-Jobs";
 import SavedJobs from "./pages/Saved-Jobs";
 import MyJobs from "./pages/my-Jobs";
+import Onboarding from "./pages/onboarding";
 
 const router = createBrowserRouter([
   {
