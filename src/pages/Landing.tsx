@@ -6,8 +6,21 @@ import {
   CarouselItem,
 } from "../components/ui/carousel";
 import companies from "../data/companies.json";
+import faqs from "../data/faq.json";
 import Autoplay from "embla-carousel-autoplay";
 import { useRef } from "react";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "../components/ui/card";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "../components/ui/accordion";
 
 const LandingPage = () => {
   const plugin = useRef(Autoplay({ delay: 1000, stopOnInteraction: true }));
@@ -53,8 +66,34 @@ const LandingPage = () => {
       </Carousel>
       {/* banner */}
       <img src="/banner.jpeg" alt="" className="w-full" />
-      <section>{/* cards */}</section>
+      {/* cards */}
+      <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <Card>
+          <CardHeader>
+            <CardTitle className="font-bold">For job seekers</CardTitle>
+          </CardHeader>
+          <CardContent>
+            Search and apply for jobs, track applications, and more.
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle className="font-bold">For Employers</CardTitle>
+          </CardHeader>
+          <CardContent>
+            Post jobs, manage applications, and find the best candidates.
+          </CardContent>
+        </Card>
+      </section>
       {/* accordion */}
+      <Accordion type="single" collapsible>
+        {faqs.map((faq, index) => (
+          <AccordionItem value={`item-1-${index}`} key={index} className="mb-2">
+            <AccordionTrigger>{faq.question}</AccordionTrigger>
+            <AccordionContent>{faq.answer}</AccordionContent>
+          </AccordionItem>
+        ))}
+      </Accordion>
     </main>
   );
 };
