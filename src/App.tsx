@@ -2,7 +2,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 import AppLayout from "./layout/app-layout";
 import LandingPage from "./pages/landing";
-
 import JobListing from "./pages/job-listing";
 import JobPage from "./pages/Job";
 import PostJobs from "./pages/post-Jobs";
@@ -23,8 +22,7 @@ const router = createBrowserRouter([
         path: "/onboarding",
         element: (
           <ProtectedRoute>
-            {" "}
-            <Onboarding />,
+            <Onboarding />
           </ProtectedRoute>
         ),
       },
@@ -32,8 +30,7 @@ const router = createBrowserRouter([
         path: "/jobs",
         element: (
           <ProtectedRoute>
-            {" "}
-            <JobListing />,
+            <JobListing />
           </ProtectedRoute>
         ),
       },
@@ -41,8 +38,7 @@ const router = createBrowserRouter([
         path: "/job/:id",
         element: (
           <ProtectedRoute>
-            {" "}
-            <JobPage />,
+            <JobPage />
           </ProtectedRoute>
         ),
       },
@@ -50,7 +46,7 @@ const router = createBrowserRouter([
         path: "/post-job",
         element: (
           <ProtectedRoute>
-            <PostJobs />,
+            <PostJobs />
           </ProtectedRoute>
         ),
       },
@@ -58,8 +54,7 @@ const router = createBrowserRouter([
         path: "/saved-jobs",
         element: (
           <ProtectedRoute>
-            {" "}
-            <SavedJobs />,
+            <SavedJobs />
           </ProtectedRoute>
         ),
       },
@@ -67,7 +62,6 @@ const router = createBrowserRouter([
         path: "/my-jobs",
         element: (
           <ProtectedRoute>
-            {" "}
             <MyJobs />
           </ProtectedRoute>
         ),
@@ -75,7 +69,9 @@ const router = createBrowserRouter([
     ],
   },
 ]);
+
 const App = () => {
   return <RouterProvider router={router} />;
 };
+
 export default App;

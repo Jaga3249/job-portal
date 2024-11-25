@@ -5,6 +5,7 @@ import {
   SignIn,
   SignInButton,
   UserButton,
+  useUser,
 } from "@clerk/clerk-react";
 import { Button } from "./ui/button";
 import { Briefcase, Heart, PenBox } from "lucide-react";
@@ -14,6 +15,7 @@ import { useEffect, useState } from "react";
 const Header = () => {
   const [showSignIn, setShowSignIn] = useState(false);
   const [search, setSearch] = useSearchParams();
+  const { user } = useUser();
   const handleOverLayClick = (e: any) => {
     if (e.target === e.currentTarget) {
       setShowSignIn(false);
@@ -25,7 +27,7 @@ const Header = () => {
       setShowSignIn(true);
     }
   }, [search]);
-  console.log(search.get("sign-in"));
+
   return (
     <>
       <nav className="py-4 flex justify-between items-center">
@@ -41,10 +43,11 @@ const Header = () => {
 
           <SignedIn>
             {/* add condiion */}
-            <Button variant={"destructive"} className="rounded-full">
-              <PenBox size={20} className="mr-1" />
-              Post a Job
-            </Button>
+            {user?.unsafeMetadata?.role === "recruiter" && (
+              <Link to={"/post-job"}>
+                <Button variant={"blue"}>Post Job</Button>
+              </Link>
+            )}
             <UserButton
               appearance={{
                 elements: {
@@ -73,10 +76,7 @@ const Header = () => {
           className="flex justify-center items-center inset-0 z-50 fixed bg-black bg-opacity-50"
           onClick={handleOverLayClick}
         >
-          <SignIn
-            signUpForceRedirectUrl="/onboarding"
-            fallbackRedirectUrl="/onboarding"
-          />
+          <SignIn signUpForceRedirectUrl="/" fallbackRedirectUrl="/" />
         </div>
       )}
     </>

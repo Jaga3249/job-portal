@@ -10,6 +10,7 @@ const supabaseClient = async (supabaseAcessToken: any) => {
       },
     },
   });
+
   return supabase;
 };
 
